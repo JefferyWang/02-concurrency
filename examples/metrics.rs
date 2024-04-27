@@ -12,7 +12,7 @@ fn main() -> Result<()> {
 
     // start N workers and M requesters
 
-    println!("metrics: {:?}", metrics.snapshot());
+    println!("metrics: {}", metrics);
 
     for idx in 0..N {
         task_worker(idx, metrics.clone())?;
