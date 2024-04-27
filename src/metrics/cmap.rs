@@ -6,11 +6,11 @@ use dashmap::DashMap;
 use std::{fmt::Display, sync::Arc};
 
 #[derive(Debug, Clone, Default)]
-pub struct Metrics {
+pub struct CmapMetrics {
     data: Arc<DashMap<String, i64>>,
 }
 
-impl Display for Metrics {
+impl Display for CmapMetrics {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         for entry in self.data.iter() {
             writeln!(f, "{}: {}", entry.key(), entry.value())?;
@@ -19,7 +19,7 @@ impl Display for Metrics {
     }
 }
 
-impl Metrics {
+impl CmapMetrics {
     pub fn new() -> Self {
         Self {
             data: Arc::new(DashMap::new()),
